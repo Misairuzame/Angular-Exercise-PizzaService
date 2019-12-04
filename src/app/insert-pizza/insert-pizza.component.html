@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Insert Pizza</h1>
+    <form [formGroup]="insertPizzaForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" formControlName="name" type="text" name="name" id="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input class="form-control" formControlName="description" type="text" name="description" id="description" placeholder="Comma or space-separated list of ingredients">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input class="form-control" formControlName="price" type="text" name="price" id="price" placeholder="Valid formats: 0,99 | 1.23 | 01,23 | 12.34">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg" [disabled]="!insertPizzaForm.valid"
+            [class.btn-primary]="insertPizzaForm.valid" [class.btn-secondary]="!insertPizzaForm.valid"
+            (click)="onSubmit()">Insert</button>
+        </div>
+    </form>
+
+    <div [hidden]="showDiv()" id="anchor"></div>
+    
+</div>
